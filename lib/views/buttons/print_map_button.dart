@@ -2,7 +2,7 @@
 import "dart:typed_data";
 import "dart:ui";
 
-import "package:casimir_chevalier_2025/views/casimir_chevalier/buttons/print_map_button/opener.dart";
+import "package:casimir_chevalier_2025/views/buttons/print_map_button/opener.dart";
 import "package:flutter/material.dart";
 import "package:flutter/rendering.dart";
 

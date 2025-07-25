@@ -5,6 +5,7 @@ class AppTheme {
   static final lightTheme = ThemeData(
     useMaterial3: true,
     cardColor: Colors.white,
+
     // Define the default brightness and colors.
     // colorScheme: ColorScheme.fromSeed(
     //   // seedColor: SatStyle.softDarkBlueColor,
@@ -65,6 +66,7 @@ class AppTheme {
     // Define the default `TextTheme`. Use this to specify the default
     // text styling for headlines, titles, bodies of text, and more.
     textTheme: TextTheme(
+
       displayLarge: const TextStyle(
 
         fontWeight: FontWeight.bold,

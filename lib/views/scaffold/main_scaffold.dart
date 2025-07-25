@@ -1,5 +1,4 @@
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
-import 'package:casimir_chevalier_2025/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +13,26 @@ class MainCasimirScaffold extends StatelessWidget {
     final isSmallScreen = screenWidth < 800; // Adjust breakpoint as needed
 
     return Scaffold(
-      body: SafeArea(child: body),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (c, constraints) => PopScope(
+            canPop: Scaffold.of(c).isEndDrawerOpen,
+            onPopInvokedWithResult: (canPop, result) {
+              if (Scaffold.of(c).isEndDrawerOpen) {
+                Scaffold.of(c).closeEndDrawer();
+              } else {
+                // Pop page only if the page is not the last one in the route history
+                if (context.canPop()) {
+                  context.pop();
+                }
+              }
+              // If the drawer was open, PopScope's canPop was false,
+              // so we need to manually pop if it's now closed.
+            },
+            child: body,
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       bottomSheet: Row(
         // crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,35 +40,15 @@ class MainCasimirScaffold extends StatelessWidget {
         // mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1.0,
+            child: SafeArea(
+              child: SelectableText(
+                "2025 - La Société archéologique de Touraine.",
+                style: TextStyle(
                   color: Theme.of(
                     context,
-                  ).colorScheme.onSurface.withOpacity(0.2),
+                  ).colorScheme.onSurface.withOpacity(0.7),
                 ),
-
-                // Border(
-                //   top: BorderSide(
-                //     width: 1.0,
-                //     color: Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
-                //   ),
-                // ),
-                // color: Theme.of(context).colorScheme.surface,
-              ),
-              // padding: const EdgeInsets.all(20.0),
-              // color: Theme.of(context).colorScheme.surface,
-              child: SafeArea(
-                child: Text(
-                  "2025 La Société archéologique de Touraine.",
-                  style: TextStyle(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.onSurface.withOpacity(0.7),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
@@ -58,7 +56,7 @@ class MainCasimirScaffold extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text(
-          'JEP 2025',
+          "JEP 2025",
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
         actions: isSmallScreen
@@ -89,10 +87,17 @@ class MainCasimirScaffold extends StatelessWidget {
                   child: const Text('Mademoiselle Cloque'),
                 ),
                 TextButton(
+                  // style: Theme.of(context).textButtonTheme.sty,
                   onPressed: () {
                     context.push(CasimirChevalierRoutes.timelineBasiliqueRoute);
                   },
                   child: const Text('Frise chronologique de la basilique'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    context.push(CasimirChevalierRoutes.moreRoute);
+                  },
+                  child: Text("À propos"),
                 ),
               ],
       ),
@@ -127,6 +132,9 @@ class MainCasimirScaffold extends StatelessWidget {
                   ),
                   ListTile(
                     title: Text("À Propos"),
+                    onTap: () {
+                      context.push(CasimirChevalierRoutes.moreRoute);
+                    },
                   ),
                 ],
               ),
