@@ -1,3 +1,4 @@
+import 'package:casimir_chevalier_2025/models/sources/author.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'source_item_data.g.dart';
@@ -6,6 +7,9 @@ part 'source_item_data.g.dart';
 class SourceItemData {
   @JsonKey(name: "title")
   final String title;
+
+  @JsonKey(name: "authors")
+  final List<Author> authors;
 
   @JsonKey(name: "url")
   final String? url;
@@ -17,18 +21,19 @@ class SourceItemData {
   final DateTime? date;
 
   @JsonKey(name: "id")
-  final String id;
+  final String? id;
 
   @JsonKey(name: "description")
-  final String description;
+  final String? description;
 
   SourceItemData({
     required this.title,
-    required this.url,
-    required this.publisher,
-    required this.date,
-    required this.id,
-    required this.description,
+    required this.authors,
+    this.url,
+    this.publisher,
+    this.date,
+    this.id,
+    this.description,
   });
 
   static dateToJson(DateTime? date) {

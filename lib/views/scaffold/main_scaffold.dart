@@ -1,3 +1,4 @@
+import 'package:casimir_chevalier_2025/models/app/scaffold_item.dart';
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -5,7 +6,41 @@ import 'package:go_router/go_router.dart';
 class MainCasimirScaffold extends StatelessWidget {
   final Widget body;
 
-  const MainCasimirScaffold({super.key, required this.body});
+  MainCasimirScaffold({super.key, required this.body});
+
+  final List<ScaffoldItem> _items = [
+    ScaffoldItem(
+      label: "Frise chronologique de la basilique Saint-Martin",
+      path: CasimirChevalierRoutes.timelineBasiliqueRoute,
+      children: null,
+    ),
+    ScaffoldItem(
+      label: "Mademoiselle Cloque",
+      path: CasimirChevalierRoutes.mademoiselleCloqueRoute,
+      children: [
+        ScaffoldItem(
+          label: "Personnages",
+          path: CasimirChevalierRoutes.peopleRoute,
+          children: null,
+        ),
+        ScaffoldItem(
+          label: "Lieux",
+          path: CasimirChevalierRoutes.locationsRoute,
+          children: null,
+        ),
+        ScaffoldItem(
+          label: "Institutions",
+          path: CasimirChevalierRoutes.institutionsRoute,
+          children: null,
+        ),
+      ],
+    ),
+    ScaffoldItem(
+      label: "À propos",
+      path: CasimirChevalierRoutes.moreRoute,
+      children: null,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -68,38 +103,7 @@ class MainCasimirScaffold extends StatelessWidget {
                   ),
                 ),
               ]
-            : [
-                TextButton(
-                  onPressed: () {
-                    context.push(CasimirChevalierRoutes.mainRoute);
-                  },
-                  child: const Text('Accueil'),
-                ),
-                // TextButton(onPressed: () {}, child: const Text('À Propos')),
-                // TextButton(onPressed: () {}, child: const Text('Services')),
-                // TextButton(onPressed: () {}, child: const Text('Contact')),
-                TextButton(
-                  onPressed: () {
-                    context.push(
-                      CasimirChevalierRoutes.mademoiselleCloqueRoute,
-                    );
-                  },
-                  child: const Text('Mademoiselle Cloque'),
-                ),
-                TextButton(
-                  // style: Theme.of(context).textButtonTheme.sty,
-                  onPressed: () {
-                    context.push(CasimirChevalierRoutes.timelineBasiliqueRoute);
-                  },
-                  child: const Text('Frise chronologique de la basilique'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    context.push(CasimirChevalierRoutes.moreRoute);
-                  },
-                  child: Text("À propos"),
-                ),
-              ],
+            : _buildMenuAnchor(context, _items),
       ),
       endDrawer: isSmallScreen
           ? Drawer(
@@ -114,32 +118,58 @@ class MainCasimirScaffold extends StatelessWidget {
                       'Journées européennes du patrimoine 2025 du 20 au 21 septembre',
                     ),
                   ),
-                  ListTile(
-                    title: const Text('Accueil'),
-                    onTap: () => context.push(CasimirChevalierRoutes.mainRoute),
-                  ),
-                  ListTile(
-                    title: const Text('Mademoiselle Cloque'),
-                    onTap: () => context.push(
-                      CasimirChevalierRoutes.mademoiselleCloqueRoute,
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Frise chronologique de la basilique'),
-                    onTap: () => context.push(
-                      CasimirChevalierRoutes.timelineBasiliqueRoute,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text("À Propos"),
-                    onTap: () {
-                      context.push(CasimirChevalierRoutes.moreRoute);
-                    },
-                  ),
+                  ..._buildDrawerList(context, _items),
                 ],
               ),
             )
           : null,
     );
+  }
+
+  List<MenuAnchor> _buildMenuAnchor(BuildContext context, List<ScaffoldItem> items) {
+    return items
+        .map(
+          (ScaffoldItem item) => MenuAnchor(
+            builder: (context, controller, child) => TextButton(
+              onPressed: () {
+                if (item.children != null) {
+                  if (controller.isOpen) {
+                    controller.close();
+                  } else {
+                    controller.open();
+                  }
+                } else {
+                  context.push(item.path);
+                }
+              },
+              child: Text(item.label),
+            ),
+            menuChildren: item.children != null
+                ? _buildMenuAnchor(context, item.children!)
+                : [],
+          ),
+        )
+        .toList();
+  }
+
+  List<Widget> _buildDrawerList(
+    BuildContext context,
+    List<ScaffoldItem> items,
+  ) {
+    return items.map((item) {
+      if (item.hasChildren) {
+        return ExpansionTile(
+          title: Text(item.label),
+          children: _buildDrawerList(context, item.children!),
+        );
+      } else {
+        return ListTile(
+          title: Text(item.label),
+          onTap: () {
+            context.push(item.path);
+          },
+        );
+      }
+    }).toList();
   }
 }

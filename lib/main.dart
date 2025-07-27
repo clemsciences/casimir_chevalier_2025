@@ -2,8 +2,10 @@ import 'package:casimir_chevalier_2025/models/app/app_choice.dart';
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
 import 'package:casimir_chevalier_2025/style/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(MyApp(appChoice: AppChoice.casimirChevalier));
 }
 
