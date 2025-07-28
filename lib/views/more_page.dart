@@ -71,9 +71,9 @@ class MorePage extends StatelessWidget {
                         TextSpan(text: "Le code est accessible à tous sur "),
                         LinkTextSpan(
                           url:
-                          "https://clemsciences.github.io/casimir_chevalier_2025",
+                          "https://github.com/clemsciences/casimir_chevalier_2025",
                           urlText:
-                          "https://clemsciences.github.io/casimir_chevalier_2025",
+                          "https://github.com/clemsciences/casimir_chevalier_2025",
                         ),
                         TextSpan(text: ".")
                       ],
