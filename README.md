@@ -1,16 +1,6 @@
 # casimir_chevalier_2025
 
-A new Flutter project.
+C'est le code du site internet associé à l'exposition autour de Casimir Chevalier à la [Bibliothèque d'Histoire de la Touraine](https://bht.societearcheotouraine.fr) 
+de la [Société archéologique de Touraine](https://societearcheotouraine.eu).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Voici le lien vers la page de test : [https://clemsciences.github.io/casimir_chevalier_2025/](https://clemsciences.github.io/casimir_chevalier_2025/). 

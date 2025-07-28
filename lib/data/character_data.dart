@@ -27,8 +27,8 @@ class CharacterData {
       chapterCited: [],
       isFictional: true
     ),
-    Character(name: "Cloque", firstName: "Athénaïs", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
-    Character(name: "Mounet-Sully", firstName: "", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
+    Character(name: "Cloque", firstName: "Athénaïs", title: "Mademoiselle", aliases: [], description: "", chapterCited: [], isFictional: true),
+    Character(name: "Mounet-Sully", firstName: "", title: "", aliases: [], description: "exemple d'homme célèbre", chapterCited: [], isFictional: true),
     Character(name: "Aurebie", firstName: "", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
     Character(name: "Atala", firstName: "", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
     Character(name: "", firstName: "René", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
@@ -83,6 +83,18 @@ class CharacterData {
     Character(name: "Archambault", firstName: "Léopoldine", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
     Character(name: "Chevillé", firstName: "", title: "Mme", aliases: [], description: "", chapterCited: [], isFictional: true),
     Character(name: "Stanislas de Wielosowsky", firstName: "", title: "", aliases: [], description: "", chapterCited: [], isFictional: true),
+    
+    Character(name: "Charles X", title: "roi de France", birthDate: DateTime(1757, 10, 9), birthPlace: "Versailles", nationality: "Française", aliases: [], description: "roi de France de 1824 à 1830", chapterCited: [], isFictional: false),
+    Character(name: "Henri V", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "de Chambord", title: "compte", aliases: [], description: "prétendant au trône de France", chapterCited: [], isFictional: false),
+    Character(name: "Bonaparte", firstName: "Napoléon", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "Charlemagne", aliases: [], description: "empereur de de l'empire des Francs", chapterCited: [], isFictional: false),
+    Character(name: "Dumas", firstName: "Alexandre", aliases: [], description: "fils d'Alexandre Dumas. Il est pris comme exemple d'homme célèbre", chapterCited: [], isFictional: false),
+    Character(name: "Descartes",firstName: "René", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "Rabelais",firstName: "François", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "César",firstName: "Jules", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "Grévy",firstName: "Jules", aliases: [], description: "", chapterCited: [], isFictional: false),
+    Character(name: "Ferry",firstName: "Jules", aliases: [], description: "", chapterCited: [], isFictional: false),
 
 
   ];

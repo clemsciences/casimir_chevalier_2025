@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
-import 'package:casimir_chevalier_2025/routes/routes.dart';
+import 'package:casimir_chevalier_2025/routes/router_extension.dart';
 import 'package:casimir_chevalier_2025/views/scaffold/main_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -42,7 +42,7 @@ class ChaptersPage extends StatelessWidget {
                     ),
                     // Affiche le nom du fichier sans l'extension
                     onTap: () {
-                      context.push(
+                      context.goPush(
                         "${CasimirChevalierRoutes.chapterRoute}/$index",
                       );
                     },

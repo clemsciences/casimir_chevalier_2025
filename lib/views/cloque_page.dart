@@ -1,9 +1,9 @@
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
+import 'package:casimir_chevalier_2025/routes/router_extension.dart';
 import 'package:casimir_chevalier_2025/views/items/limited_item.dart';
 import 'package:casimir_chevalier_2025/views/scaffold/main_scaffold.dart';
 import 'package:casimir_chevalier_2025/views/text/citation_text.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class MademoiselleCloquePage extends StatelessWidget {
   const MademoiselleCloquePage({super.key});
@@ -83,7 +83,7 @@ class MademoiselleCloquePage extends StatelessWidget {
               child: ListTile(
                 title: Text("Voir les chapitres"),
                 onTap: () {
-                  context.push(CasimirChevalierRoutes.chaptersRoute);
+                  context.goPush(CasimirChevalierRoutes.chaptersRoute);
                 },
               ),
             ),
@@ -92,7 +92,7 @@ class MademoiselleCloquePage extends StatelessWidget {
               child: ListTile(
                 title: Text("Les lieux mentionnées"),
                 onTap: () {
-                  context.push(CasimirChevalierRoutes.locationsRoute);
+                  context.goPush(CasimirChevalierRoutes.locationsRoute);
                 },
               ),
             ),
@@ -100,7 +100,7 @@ class MademoiselleCloquePage extends StatelessWidget {
               child: ListTile(
                 title: Text("Les personnages mentionnées"),
                 onTap: () {
-                  context.push(CasimirChevalierRoutes.peopleRoute);
+                  context.goPush(CasimirChevalierRoutes.peopleRoute);
                 },
               ),
             ),
@@ -108,7 +108,7 @@ class MademoiselleCloquePage extends StatelessWidget {
               child: ListTile(
                 title: Text("Les institutions mentionnées"),
                 onTap: () {
-                  context.push(CasimirChevalierRoutes.institutionsRoute);
+                  context.goPush(CasimirChevalierRoutes.institutionsRoute);
                 },
               ),
             ),

@@ -21,3 +21,9 @@ Ajout du Github Action pout générer les pages pour Github Pages.
 
 ### 1.0.3+1
 * Refonte du menu principal et ajout de sources.
+
+
+### 1.0.4+1
+* Correction du routage pour le web et le mobile.
+* Mise à jour du README.md.
+* Ajout des personnes réelles.

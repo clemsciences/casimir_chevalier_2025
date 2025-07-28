@@ -1,4 +1,5 @@
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
+import 'package:casimir_chevalier_2025/routes/router_extension.dart';
 import 'package:casimir_chevalier_2025/views/scaffold/main_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ class ErrorPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  context.push(CasimirChevalierRoutes.mainRoute);
+                  context.goPush(CasimirChevalierRoutes.mainRoute);
                 },
                 child: Text("Accueil"),
               ),

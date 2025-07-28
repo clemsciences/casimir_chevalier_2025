@@ -1,5 +1,6 @@
 import 'package:casimir_chevalier_2025/models/app/scaffold_item.dart';
 import 'package:casimir_chevalier_2025/routes/casimir_routes.dart';
+import 'package:casimir_chevalier_2025/routes/router_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -90,9 +91,12 @@ class MainCasimirScaffold extends StatelessWidget {
         ],
       ),
       appBar: AppBar(
-        title: Text(
-          "JEP 2025",
-          style: Theme.of(context).appBarTheme.titleTextStyle,
+        title: TextButton(
+          onPressed: () {
+            context.goPush(CasimirChevalierRoutes.mainRoute);
+          },
+          child: Text("JEP 2025", style: Theme.of(context).appBarTheme.titleTextStyle,),
+
         ),
         actions: isSmallScreen
             ? [
@@ -139,7 +143,7 @@ class MainCasimirScaffold extends StatelessWidget {
                     controller.open();
                   }
                 } else {
-                  context.push(item.path);
+                  context.goPush(item.path);
                 }
               },
               child: Text(item.label),
@@ -166,7 +170,7 @@ class MainCasimirScaffold extends StatelessWidget {
         return ListTile(
           title: Text(item.label),
           onTap: () {
-            context.push(item.path);
+            context.goPush(item.path);
           },
         );
       }
