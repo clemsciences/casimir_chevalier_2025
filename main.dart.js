@@ -36424,7 +36424,7 @@ A.a1j.prototype={
 $0(){A.U7(A.d9("https://societearcheotouraine.eu/",0,null))},
 $S:0}
 A.Io.prototype={
-I(a){var s=null,r="https://github.com/clemsciences/eglise_saint_martin_le_beau",q=A.N(a).ok.d,p=t.E,o=t.VO
+I(a){var s=null,r="https://clemsciences.github.io/casimir_chevalier_2025",q=A.N(a).ok.d,p=t.E,o=t.VO
 return A.jP(A.kd(A.dw(A.b([new A.xM(A.fv(A.dw(A.b([A.cG("A propos",s,s,q==null?s:q.de(A.N(a).ax.c),s)],p),B.ai,B.ac,B.aq),s,s),s),A.e1(s,40,s),A.fv(A.dw(A.b([A.h2(s,A.lV(A.b7(A.b([A.b7(s,s,s,s,"Ce site internet a \xe9t\xe9 con\xe7u pour \xeatre un suppl\xe9ment de l'exposition \xe0 "),A.anv("https://bht.societearcheotouraine.fr","la Biblioth\xe8que d'Histoire de la Touraine"),A.b7(s,s,s,s," qui fait partie de "),A.anv("https://societearcheotouraine.eu","la Soci\xe9t\xe9 arch\xe9ologique de Touraine"),A.b7(s,s,s,s,".")],o),s,s,s,s),s),B.z,s,s,s,s,s,s,new A.aR(16,16,16,16),s,s,s)],p),B.ai,B.ac,B.aq),s,s),A.e1(s,20,s),A.h2(s,A.dw(A.b([A.kc("D\xe9veloppement",A.N(a).ok.e,s),A.e1(s,10,s),A.lV(A.b7(A.b([A.b7(s,s,s,s,"Le code est accessible \xe0 tous sur "),A.anv(r,r),A.b7(s,s,s,s,".")],o),s,s,s,s),s)],p),B.ai,B.ac,B.aq),B.z,s,s,s,s,s,s,s,s,s,s)],p),B.ai,B.ac,B.aq),s,s,B.R))}}
 A.Ig.prototype={
 I(a){var s,r=this,q=null,p=A.bo(a,q,t.w).w.a.a<800,o=A.JT(!0,A.anu(new A.a1f(r,a)),B.aj,!0),n=A.N(a).ax.k3,m=t.E
