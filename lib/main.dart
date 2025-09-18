@@ -6,13 +6,13 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() {
   usePathUrlStrategy();
-  runApp(MyApp(appChoice: AppChoice.casimirChevalier));
+  runApp(CasimirChevalierApp(appChoice: AppChoice.casimirChevalier));
 }
 
-class MyApp extends StatelessWidget {
+class CasimirChevalierApp extends StatelessWidget {
   final AppChoice appChoice;
 
-  const MyApp({super.key, required this.appChoice});
+  const CasimirChevalierApp({super.key, required this.appChoice});
 
   @override
   Widget build(BuildContext context) {

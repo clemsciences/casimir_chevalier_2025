@@ -4,37 +4,49 @@ part 'character.g.dart';
 
 @JsonSerializable()
 class Character {
-  @JsonKey(name: "name")
+  static const String nameKey = "name";
+  static const String firstNameKey = "first_name";
+  static const String titleKey = "title";
+  static const String aliasesKey = "aliases";
+  static const String descriptionKey = "description";
+  static const String chapterCitedKey = "chapter_cited";
+  static const String nationalityKey = "nationality";
+  static const String urlKey = "url";
+  static const String isFictionalKey = "is_fictional";
+  static const String birthDateKey = "birth_date";
+  static const String birthPlaceKey = "birth_place";
+
+  @JsonKey(name: nameKey)
   final String name;
 
-  @JsonKey(name: "first_name")
+  @JsonKey(name: firstNameKey)
   final String? firstName;
 
-  @JsonKey(name: "title")
+  @JsonKey(name: titleKey)
   final String? title;
 
-  @JsonKey(name: "aliases")
+  @JsonKey(name: aliasesKey)
   final List<String> aliases;
 
-  @JsonKey(name: "description")
+  @JsonKey(name: descriptionKey)
   final String description;
 
-  @JsonKey(name: "chapter_cited")
+  @JsonKey(name: chapterCitedKey)
   final List<int> chapterCited;
 
-  @JsonKey(name: "nationality")
+  @JsonKey(name: nationalityKey)
   final String? nationality;
 
-  @JsonKey(name: "url")
+  @JsonKey(name: urlKey)
   final String? url;
 
-  @JsonKey(name: "is_fictional")
+  @JsonKey(name: isFictionalKey)
   final bool isFictional;
 
-  @JsonKey(name: "birth_date")
+  @JsonKey(name: birthDateKey)
   final DateTime? birthDate;
 
-  @JsonKey(name: "birth_place")
+  @JsonKey(name: birthPlaceKey)
   final String? birthPlace;
 
   Character({
@@ -50,4 +62,9 @@ class Character {
     this.birthDate,
     this.birthPlace,
   });
+
+  factory Character.fromJson(Map<String, dynamic> json) =>
+      _$CharacterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CharacterToJson(this);
 }

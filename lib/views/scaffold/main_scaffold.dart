@@ -10,11 +10,25 @@ class MainCasimirScaffold extends StatelessWidget {
   MainCasimirScaffold({super.key, required this.body});
 
   final List<ScaffoldItem> _items = [
-    ScaffoldItem(
-      label: "Frise chronologique de la basilique Saint-Martin",
-      path: CasimirChevalierRoutes.timelineBasiliqueRoute,
-      children: null,
-    ),
+    // ScaffoldItem(
+    //   label: "Casimir Chevalier",
+    //   path: CasimirChevalierRoutes.casimirRoute,
+    //   children: [
+    //     ScaffoldItem(
+    //       label: "Biographie",
+    //       path: CasimirChevalierRoutes.casimirRoute,
+    //       children: null,
+    //     ),
+    //     ScaffoldItem(label: "Liens avec Chenonceau", path: CasimirChevalierRoutes.chenonceauRoute, children: null)
+    //   ],
+    // ),
+    ScaffoldItem(label: "Basilique Saint-Martin", path: "", children: [
+      ScaffoldItem(
+        label: "Frise chronologique de la basilique Saint-Martin",
+        path: CasimirChevalierRoutes.timelineBasiliqueRoute,
+        children: null,
+      ),
+    ]),
     ScaffoldItem(
       label: "Mademoiselle Cloque",
       path: CasimirChevalierRoutes.mademoiselleCloqueRoute,
@@ -95,8 +109,10 @@ class MainCasimirScaffold extends StatelessWidget {
           onPressed: () {
             context.goPush(CasimirChevalierRoutes.mainRoute);
           },
-          child: Text("JEP 2025", style: Theme.of(context).appBarTheme.titleTextStyle,),
-
+          child: Text(
+            "JEP 2025",
+            style: Theme.of(context).appBarTheme.titleTextStyle,
+          ),
         ),
         actions: isSmallScreen
             ? [
@@ -130,7 +146,10 @@ class MainCasimirScaffold extends StatelessWidget {
     );
   }
 
-  List<MenuAnchor> _buildMenuAnchor(BuildContext context, List<ScaffoldItem> items) {
+  List<MenuAnchor> _buildMenuAnchor(
+    BuildContext context,
+    List<ScaffoldItem> items,
+  ) {
     return items
         .map(
           (ScaffoldItem item) => MenuAnchor(

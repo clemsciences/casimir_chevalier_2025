@@ -5,25 +5,33 @@ part 'source_item_data.g.dart';
 
 @JsonSerializable()
 class SourceItemData {
-  @JsonKey(name: "title")
+  static const String keyTitle = "title";
+  static const String keyAuthors = "authors";
+  static const String keyUrl = "url";
+  static const String keyPublisher = "publisher";
+  static const String keyDate = "date";
+  static const String keyId = "id";
+  static const String keyDescription = "description";
+
+  @JsonKey(name: keyTitle)
   final String title;
 
-  @JsonKey(name: "authors")
+  @JsonKey(name: keyAuthors)
   final List<Author> authors;
 
-  @JsonKey(name: "url")
+  @JsonKey(name: keyUrl)
   final String? url;
 
-  @JsonKey(name: "publisher")
+  @JsonKey(name: keyPublisher)
   final String? publisher;
 
-  @JsonKey(name: "date", toJson: dateToJson)
+  @JsonKey(name: keyDate, toJson: dateToJson)
   final DateTime? date;
 
-  @JsonKey(name: "id")
+  @JsonKey(name: keyId)
   final String? id;
 
-  @JsonKey(name: "description")
+  @JsonKey(name: keyDescription)
   final String? description;
 
   SourceItemData({

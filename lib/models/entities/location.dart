@@ -7,24 +7,33 @@ enum LocationScale { street, city, country, region, continent, place, river }
 
 @JsonSerializable()
 class Location {
-  @JsonKey(name: "name")
+  static const String keyName = "name";
+  static const String keyLongitude = "longitude";
+  static const String keyLatitude = "latitude";
+  static const String keyDescription = "description";
+  static const String keyScale = "scale";
+  static const String keyLink = "link";
+  static const String keyUrl = "url";
+
+  @JsonKey(name: keyName)
   final String name;
 
-  @JsonKey(name: "longitude")
+  @JsonKey(name: keyLongitude)
   final double? longitude;
 
-  @JsonKey(name: "latitude")
+  @JsonKey(name: keyLatitude)
   final double? latitude;
 
-  @JsonKey(name: "description")
+  @JsonKey(name: keyDescription)
   final String? description;
 
-  @JsonKey(name: "scale")
+  @JsonKey(name: keyScale)
   final LocationScale scale;
 
+  @JsonKey(name: keyLink)
   final Location? link;
 
-  @JsonKey(name: "url")
+  @JsonKey(name: keyUrl)
   final String? url;
 
   Location({

@@ -1,4 +1,5 @@
 import 'package:casimir_chevalier_2025/models/entities/character.dart';
+import 'package:casimir_chevalier_2025/style/style.dart';
 import 'package:casimir_chevalier_2025/views/items/limited_item.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +16,21 @@ class PeopleItem extends StatelessWidget {
           title: SelectableText.rich(
             TextSpan(
               children: [
-                if(dataItem.title != null)
-                  TextSpan(text: dataItem.title),
+                if (dataItem.title != null)
+                  TextSpan(text: "${dataItem.title!} "),
                 if (dataItem.firstName != null)
-                  TextSpan(text: dataItem.firstName),
+                  TextSpan(text: "${dataItem.firstName!} "),
                 TextSpan(text: dataItem.name),
+              ],
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold)
+            ),
+          ),
+          subtitle: SelectableText.rich(
+            TextSpan(
+              children: [
+                TextSpan(text: dataItem.description),
+                if (dataItem.url?.isNotEmpty ?? false)
+                  TextSpan(text: " ${dataItem.url!}", style: SatStyle.textLinkStyle),
               ],
             ),
           ),

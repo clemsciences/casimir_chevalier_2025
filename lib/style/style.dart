@@ -18,4 +18,10 @@ class SatStyle {
     decorationThickness: 2.0,
     height: 1.5,
   );
+
+  static const paragraphStyle = TextStyle(
+    color: Colors.black,
+    fontSize: 16.0,
+    fontWeight: FontWeight.normal,
+  );
 }

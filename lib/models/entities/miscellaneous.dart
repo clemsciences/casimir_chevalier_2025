@@ -4,11 +4,25 @@ part 'miscellaneous.g.dart';
 
 @JsonSerializable()
 class Miscellaneous {
-  @JsonKey(name: "name")
+  static const String nameKey = "name";
+  static const String descriptionKey = "description";
+  static const String chapterCitedKey = "chapterCited";
+  static const String urlsKey = "urls";
+
+  @JsonKey(name: nameKey)
   final String name;
 
-  @JsonKey(name: "description")
+  @JsonKey(name: descriptionKey)
   final String? description;
 
-  Miscellaneous({required this.name, required this.description});
+  @JsonKey(name: chapterCitedKey)
+  final List<int> chapterCited;
+
+  @JsonKey(name: urlsKey)
+  final List<String>? urls;
+
+  Miscellaneous({required this.name, required this.description, required this.chapterCited, this.urls});
+
+  static Miscellaneous fromJson(Map<String, dynamic> json) => _$MiscellaneousFromJson(json);
+  toJson() => _$MiscellaneousToJson(this);
 }

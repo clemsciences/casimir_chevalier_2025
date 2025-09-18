@@ -11,6 +11,20 @@ import 'package:historical_timeline/historical_timeline.dart';
 
 import 'buttons/print_map_button/print_map_button.dart';
 
+extension BasiliqueEventForTimeline on BasiliqueEventDataItem {
+TimelineItem toBasiliqueItem() {
+  return TimelineItem(
+    timestamp: timestamp,
+    precision: DatetimePrecision.year(),
+    text: text,
+    label: "",
+    bool1: isImportant,
+    string1: theme,
+    string2: scale,
+  );
+}
+}
+
 ///
 ///
 /// Chronologie plus détaillée à partir du XVIe siècle.
@@ -90,163 +104,163 @@ class _TimelinePageState extends State<TimelinePage> {
                       ),
                     ),
                   ),
-                Center(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) => Container(
-                      height: 200,
-                      width: constraints.maxWidth,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Importance"),
-                              leading: Checkbox(
-                                value: filter.isImportant,
-                                onChanged: (value) {
-                                  setState(() {
-                                    filter = filter.switchImportance();
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Ville"),
-                              leading: Checkbox(
-                                value: filter.containsScale(
-                                  BasiliqueEventDataItem.cityScale,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null) {
-                                      if (value) {
-                                        filter = filter.addScale(
-                                          BasiliqueEventDataItem.cityScale,
-                                        );
-                                      } else {
-                                        filter = filter.removeScale(
-                                          BasiliqueEventDataItem.cityScale,
-                                        );
-                                      }
-                                    }
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Province"),
-                              leading: Checkbox(
-                                value: filter.containsScale(
-                                  BasiliqueEventDataItem.provinceScale,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null) {
-                                      if (value) {
-                                        filter = filter.addScale(
-                                          BasiliqueEventDataItem.provinceScale,
-                                        );
-                                      } else {
-                                        filter = filter.removeScale(
-                                          BasiliqueEventDataItem.provinceScale,
-                                        );
-                                      }
-                                    }
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Nation"),
-                              leading: Checkbox(
-                                value: filter.containsScale(
-                                  BasiliqueEventDataItem.nationScale,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null) {
-                                      if (value) {
-                                        filter = filter.addScale(
-                                          BasiliqueEventDataItem.nationScale,
-                                        );
-                                      } else {
-                                        filter = filter.removeScale(
-                                          BasiliqueEventDataItem.nationScale,
-                                        );
-                                      }
-                                    }
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Religieux"),
-                              leading: Checkbox(
-                                value: filter.containsTheme(
-                                  BasiliqueEventDataItem.religionTheme,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null) {
-                                      if (value) {
-                                        filter = filter.addTheme(
-                                          BasiliqueEventDataItem.religionTheme,
-                                        );
-                                      } else {
-                                        filter = filter.removeTheme(
-                                          BasiliqueEventDataItem.religionTheme,
-                                        );
-                                      }
-                                    }
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ListTile(
-                              title: Text("Civil"),
-                              leading: Checkbox(
-                                value: filter.containsTheme(
-                                  BasiliqueEventDataItem.civilTheme,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null) {
-                                      if (value) {
-                                        filter = filter.addTheme(
-                                          BasiliqueEventDataItem.civilTheme,
-                                        );
-                                      } else {
-                                        filter = filter.removeTheme(
-                                          BasiliqueEventDataItem.civilTheme,
-                                        );
-                                      }
-                                    }
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Center(
+                //   child: LayoutBuilder(
+                //     builder: (context, constraints) => Container(
+                //       height: 200,
+                //       width: constraints.maxWidth,
+                //       child: ListView(
+                //         scrollDirection: Axis.horizontal,
+                //         children: [
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Importance"),
+                //               leading: Checkbox(
+                //                 value: filter.isImportant,
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     filter = filter.switchImportance();
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Ville"),
+                //               leading: Checkbox(
+                //                 value: filter.containsScale(
+                //                   BasiliqueEventDataItem.cityScale,
+                //                 ),
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     if (value != null) {
+                //                       if (value) {
+                //                         filter = filter.addScale(
+                //                           BasiliqueEventDataItem.cityScale,
+                //                         );
+                //                       } else {
+                //                         filter = filter.removeScale(
+                //                           BasiliqueEventDataItem.cityScale,
+                //                         );
+                //                       }
+                //                     }
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Province"),
+                //               leading: Checkbox(
+                //                 value: filter.containsScale(
+                //                   BasiliqueEventDataItem.provinceScale,
+                //                 ),
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     if (value != null) {
+                //                       if (value) {
+                //                         filter = filter.addScale(
+                //                           BasiliqueEventDataItem.provinceScale,
+                //                         );
+                //                       } else {
+                //                         filter = filter.removeScale(
+                //                           BasiliqueEventDataItem.provinceScale,
+                //                         );
+                //                       }
+                //                     }
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Nation"),
+                //               leading: Checkbox(
+                //                 value: filter.containsScale(
+                //                   BasiliqueEventDataItem.nationScale,
+                //                 ),
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     if (value != null) {
+                //                       if (value) {
+                //                         filter = filter.addScale(
+                //                           BasiliqueEventDataItem.nationScale,
+                //                         );
+                //                       } else {
+                //                         filter = filter.removeScale(
+                //                           BasiliqueEventDataItem.nationScale,
+                //                         );
+                //                       }
+                //                     }
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Religieux"),
+                //               leading: Checkbox(
+                //                 value: filter.containsTheme(
+                //                   BasiliqueEventDataItem.religionTheme,
+                //                 ),
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     if (value != null) {
+                //                       if (value) {
+                //                         filter = filter.addTheme(
+                //                           BasiliqueEventDataItem.religionTheme,
+                //                         );
+                //                       } else {
+                //                         filter = filter.removeTheme(
+                //                           BasiliqueEventDataItem.religionTheme,
+                //                         );
+                //                       }
+                //                     }
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 150,
+                //             child: ListTile(
+                //               title: Text("Civil"),
+                //               leading: Checkbox(
+                //                 value: filter.containsTheme(
+                //                   BasiliqueEventDataItem.civilTheme,
+                //                 ),
+                //                 onChanged: (value) {
+                //                   setState(() {
+                //                     if (value != null) {
+                //                       if (value) {
+                //                         filter = filter.addTheme(
+                //                           BasiliqueEventDataItem.civilTheme,
+                //                         );
+                //                       } else {
+                //                         filter = filter.removeTheme(
+                //                           BasiliqueEventDataItem.civilTheme,
+                //                         );
+                //                       }
+                //                     }
+                //                   });
+                //                 },
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Expanded(
                   child: RepaintBoundary(
                     key: timelineKey,

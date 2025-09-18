@@ -4,13 +4,18 @@ part "author.g.dart";
 
 @JsonSerializable()
 class Author {
-  @JsonKey(name: "firstName")
+  static const String firstNameKey = "firstName";
+  static const String lastNameKey = "lastName";
+  static const String titleKey = "title";
+  static const String birthdayKey = "birthday";
+
+  @JsonKey(name: firstNameKey)
   final String firstName;
-  @JsonKey(name: "lastName")
+  @JsonKey(name: lastNameKey)
   final String lastName;
-  @JsonKey(name: "title")
+  @JsonKey(name: titleKey)
   final String? title;
-  @JsonKey(name: "birthday")
+  @JsonKey(name: birthdayKey)
   final DateTime? birthday;
 
   Author({

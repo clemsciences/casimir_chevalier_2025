@@ -4,6 +4,8 @@ import 'package:casimir_chevalier_2025/views/book/chapters_page.dart';
 import 'package:casimir_chevalier_2025/views/book/locations_page.dart';
 import 'package:casimir_chevalier_2025/views/book/miscellaneous_page.dart';
 import 'package:casimir_chevalier_2025/views/book/people_page.dart';
+import 'package:casimir_chevalier_2025/views/casimir_page.dart';
+import 'package:casimir_chevalier_2025/views/chenonceau_page.dart';
 import 'package:casimir_chevalier_2025/views/cloque_page.dart';
 import 'package:casimir_chevalier_2025/views/error_page.dart';
 import 'package:casimir_chevalier_2025/views/main_page.dart';
@@ -21,6 +23,8 @@ class CasimirChevalierRoutes extends AppRoutes {
   static const String institutionsRoute = "/mademoiselle-cloque/institutions";
   static const String chaptersRoute = "/mademoiselle-cloque/chapters";
   static const String chapterRoute = "/mademoiselle-cloque/chapters/:id";
+  static const String casimirRoute = "/casimir-chevalier/biographie";
+  static const String chenonceauRoute = "/casimir-chevalier/chenonceau";
 
   static String replaceItem(String route, String id) {
     return route.replaceAll(":id", id);
@@ -76,6 +80,14 @@ final GoRouter casimirChevalierRouter = GoRouter(
     GoRoute(
       path: CasimirChevalierRoutes.mademoiselleCloqueRoute,
       builder: (context, state) => MademoiselleCloquePage(),
+    ),
+    GoRoute(
+      path: CasimirChevalierRoutes.casimirRoute,
+      builder: (context, state) => CasimirPage(),
+    ),
+    GoRoute(
+      path: CasimirChevalierRoutes.chenonceauRoute,
+      builder: (context, state) => ChenonceauPage(),
     ),
   ],
 );

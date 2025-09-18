@@ -13,9 +13,21 @@ class PeoplePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: CharacterData().fictionalCharacters
-              .map((dataItem) => PeopleItem(dataItem: dataItem))
-              .toList(),
+          children: [
+            Center(
+              child: Container(child: Column(children:
+              CharacterData().fictionalCharacters
+                  .map((dataItem) => PeopleItem(dataItem: dataItem))
+                  .toList(),),),
+            ),
+            Center(
+              child: Column(
+                children: CharacterData().existingCharacters
+                    .map((dataItem) => PeopleItem(dataItem: dataItem))
+                    .toList(),
+              ),
+            ),
+  ]
         ),
       ),
     );
