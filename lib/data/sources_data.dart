@@ -40,7 +40,7 @@ Date de mise en ligne  :  01/08/2011
     ),
   ];
 
-  toJson() {
-    return data.map((item) => item.toJson()).toList();
+  Map<String, dynamic> toJson() {
+    return {"sources": data.map((item) => item.toJson()).toList()};
   }
 }
