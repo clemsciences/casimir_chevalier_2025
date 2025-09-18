@@ -14,3 +14,6 @@
 * `ghp-import -n -p -f build/web`
 * Visit the website at [https://clemsciences.github.io/casimir_chevalier_2025/](https://clemsciences.github.io/casimir_chevalier_2025/).
 
+## Export data
+
+* `dart run :export` 
