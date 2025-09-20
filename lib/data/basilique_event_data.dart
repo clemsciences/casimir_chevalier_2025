@@ -42,21 +42,21 @@ class BasiliqueEventData {
     BasiliqueEventDataItem(
       timestamp: DateTime(853),
       text: "Incendie.",
-      isImportant: false,
+      isImportant: true,
       scale: BasiliqueEventDataItem.cityScale,
       theme: BasiliqueEventDataItem.civilTheme,
     ),
     BasiliqueEventDataItem(
-      timestamp: DateTime(905),
+      timestamp: DateTime(903),
       text: "Incendie.",
-      isImportant: false,
+      isImportant: true,
       scale: BasiliqueEventDataItem.cityScale,
       theme: BasiliqueEventDataItem.civilTheme,
     ),
     BasiliqueEventDataItem(
       timestamp: DateTime(994),
       text: "Incendie.",
-      isImportant: false,
+      isImportant: true,
       scale: BasiliqueEventDataItem.cityScale,
       theme: BasiliqueEventDataItem.civilTheme,
     ),
@@ -97,14 +97,6 @@ class BasiliqueEventData {
       text: "La basilique devient une église paroissiale.",
     ),
     BasiliqueEventDataItem(
-      timestamp: DateTime(1799, 11, 9),
-      text:
-          "Coup d'Etat du 18 Brumaire qui porte Népoléon Bonaparte Premier consul.",
-      isImportant: false,
-      theme: BasiliqueEventDataItem.civilTheme,
-      scale: BasiliqueEventDataItem.nationScale,
-    ),
-    BasiliqueEventDataItem(
       isImportant: true,
       scale: BasiliqueEventDataItem.cityScale,
       theme: BasiliqueEventDataItem.religionTheme,
@@ -114,7 +106,7 @@ class BasiliqueEventData {
     BasiliqueEventDataItem(
       timestamp: DateTime(1799, 11, 9),
       text:
-          "Coup d'Etat du 18 Brumaire qui porte Népoléon Bonaparte Premier consul.",
+          "Coup d'Etat du 18 Brumaire qui porte Napoléon Bonaparte Premier consul.",
       isImportant: false,
       theme: BasiliqueEventDataItem.civilTheme,
       scale: BasiliqueEventDataItem.nationScale,
@@ -132,7 +124,6 @@ class BasiliqueEventData {
       scale: BasiliqueEventDataItem.cityScale,
       theme: BasiliqueEventDataItem.religionTheme,
       timestamp: DateTime(1860),
-
       text:
           "Redécouverte du tombeau de saint Martin par Léon Papin-Dupont, aidé par Stanislas Ratel et le comte Pèdre Moisant.",
     ),

@@ -33,3 +33,7 @@ Ajout du Github Action pout générer les pages pour Github Pages.
 * Ajout d'annotations.
 * Masquage de pages non montrables aujourd'hui.
 * Ajout du script d'exportation.
+
+
+### 1.1.1+3
+* Correction d'une date
